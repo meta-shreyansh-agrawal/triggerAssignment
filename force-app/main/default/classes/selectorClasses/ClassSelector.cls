@@ -6,7 +6,8 @@ public with sharing class ClassSelector extends fflib_SObjectSelector {
                  Class__c.Name__c,
                  Class__c.Max_Size__c,
                  Class__c.No_of_Students__c,
-                 Class__c.Custom_Status__c
+                 Class__c.Custom_Status__c,
+                 Class__c.MyCount__c
         }; 
     }
      public Schema.SObjectType getSObjectType() {
