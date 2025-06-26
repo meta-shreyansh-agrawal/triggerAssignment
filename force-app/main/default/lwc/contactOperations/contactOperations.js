@@ -3,6 +3,7 @@ import getContactList from '@salesforce/apex/ContactController.getContactList';
 import CreateContactModal from 'c/createContactModal';
 import EditContactModal from 'c/editContactModal';
 import { LightningElement, track, wire } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 const columns = [
     { label: 'Id', fieldName: 'Id' },
@@ -41,19 +42,17 @@ export default class ContactOperations extends LightningElement {
 
     handleRowAction(event){
 
-        console.log("row action invoked",event); 
-
         const action = event.detail.action.name; 
         const row = event.detail.row; 
         const id = row.Id; 
         if(action == 'edit'){
             EditContactModal.open({recordId:id});
         }
-        else if(action = 'delete'){
+        else if(action == 'delete'){
+            console.log("Delete operation")
             deleteContact({contactId:id})
             .then(()=>{
                 this.showToast('Success','Contact deleted successfully','success');
-                return refreshApex(this.wiredContacts);
             })
             .catch((error)=>{
                 this.showToast('Error',error.message,'error');

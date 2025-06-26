@@ -5,7 +5,11 @@ public with sharing class ContactController {
     }
 
     @AuraEnabled
-    public static void deleteContact(Id contactId){
-        delete [SELECT Id FROM Contact WHERE Id=:contactId];        
+    public static void deleteContact(String contactId){
+        try{
+            delete [SELECT Id FROM Contact WHERE Id=:contactId];
+        }catch(DmlException e){
+            throw e;
+        }
     }
 }
