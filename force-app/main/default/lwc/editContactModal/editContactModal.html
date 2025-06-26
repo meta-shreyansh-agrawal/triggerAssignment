@@ -1,0 +1,25 @@
+<template>
+     <lightning-modal-header label="Update Contact"></lightning-modal-header>
+    
+    <lightning-modal-body>
+    <lightning-record-edit-form
+    object-api-name={objectApiName}
+    record-id={recordId}
+    onsuccess={handleSuccess}
+>
+    <lightning-input-field field-name={firstName}> </lightning-input-field>
+    <lightning-input-field field-name={lastName}> </lightning-input-field>
+    <lightning-input-field field-name={phone}> </lightning-input-field>
+    <lightning-input-field field-name={email}> </lightning-input-field>
+    <lightning-input-field field-name={fax}> </lightning-input-field>
+
+
+    <div class="slds-var-m-top_medium">
+        <lightning-button variant="brand" type="submit" label="Save">
+        </lightning-button>
+    </div>
+</lightning-record-edit-form> </lightning-modal-body>
+    <lightning-modal-footer>
+        <!-- <lightning-button label="Close" onclick={handleClose}></lightning-button> -->
+    </lightning-modal-footer>
+</template>

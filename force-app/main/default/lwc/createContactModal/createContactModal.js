@@ -5,11 +5,11 @@ import FirstName from '@salesforce/schema/Contact.FirstName';
 import LastName from '@salesforce/schema/Contact.LastName';
 import Phone from '@salesforce/schema/Contact.Phone';
 import LightningModal from 'lightning/modal';
-import { api, track } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class CreateContactModal extends LightningModal {
 
-    @api objectApiName = Contact;
+    objectApiName = Contact;
 
     fields = [FirstName,LastName,Email,Phone,Fax];
 
@@ -20,9 +20,6 @@ export default class CreateContactModal extends LightningModal {
             variant: 'success',
         });
         this.dispatchEvent(evt);
-    }
-
-    handleClose(){
         this.close(); 
     }
 }

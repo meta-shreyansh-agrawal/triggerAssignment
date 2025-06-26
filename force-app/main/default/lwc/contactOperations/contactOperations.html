@@ -1,13 +1,15 @@
 <template>
       <lightning-button-group>
             <lightning-button label="New" onclick={handleNewButton}></lightning-button>
-            <lightning-button label="Delete" variant="destructive" icon-name="utility:delete"></lightning-button>
       </lightning-button-group>
       <div style="height: 300px;">
         <lightning-datatable
                 key-field="id"
                 data={data}
-                columns={columns}>
+                columns={columns}
+                onrowaction={handleRowAction}
+                hide-checkbox-column
+                >
         </lightning-datatable>
     </div>
 </template>
